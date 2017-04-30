@@ -12,6 +12,7 @@
 </template>
 
 <script>
+import Vue from 'vue'
 import movie from '@/components/Movie/movie'
 
 export default {
