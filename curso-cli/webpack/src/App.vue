@@ -12,7 +12,7 @@
 </template>
 
 <script>
-//import Hello from './components/Hello'
+import movie from '@/components/Movie/movie'
 
 export default {
   name: 'app',
@@ -26,18 +26,23 @@ export default {
     }
 
   },
-  mounted: function() {
+  mounted () {
+    return {
       this.searchMovie('indiana');
-  },
-  methods: {
-    searchMovie: function(movie) {
-      fetch('http://www.omdbapi.com/?t=' + movie)
-          .then(function(response) {
-              return response.json();
-          }).then(function(json) {
-              this.selectedMovie = json;
-          }.bind(this));
     }
+  },
+  methods () {
+    return{
+        searchMovie(movie) {
+        return window.fetch(`${Vue.config.movies.ENDPONT}${movie}`),
+            .then(response => {
+                return response.json();
+            }).then(json => {
+                this.selectedMovie = json;
+            });
+        }
+    }
+
   }
 }
 </script>
