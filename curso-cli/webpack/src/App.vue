@@ -1,17 +1,43 @@
 <template>
-  <div id="app">
-    <img src="./assets/logo.png">
-    <hello></hello>
-  </div>
+  <main role="main" id="root" class="">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <h1 style="text-align: center">{{ title }}</h1>
+                    <movie v-bind:selected-movie="selectedMovie"></movie>
+                </div>
+            </div>
+        </div>
+    </main>
 </template>
 
 <script>
-import Hello from './components/Hello'
+//import Hello from './components/Hello'
 
 export default {
   name: 'app',
   components: {
-    Hello
+    movie
+  },
+  data() {
+    return {
+      title: 'Título de la aplicación ocn VUE js',
+      selectedMovie: {}
+    }
+
+  },
+  mounted: function() {
+      this.searchMovie('indiana');
+  },
+  methods: {
+    searchMovie: function(movie) {
+      fetch('http://www.omdbapi.com/?t=' + movie)
+          .then(function(response) {
+              return response.json();
+          }).then(function(json) {
+              this.selectedMovie = json;
+          }.bind(this));
+    }
   }
 }
 </script>
