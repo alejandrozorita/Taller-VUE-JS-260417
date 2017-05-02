@@ -20,30 +20,24 @@ export default {
   components: {
     movie
   },
-  data() {
+  data () {
     return {
       title: 'Título de la aplicación ocn VUE js',
       selectedMovie: {}
     }
-
   },
-  mounted () {
-    return {
-      this.searchMovie('indiana');
-    }
+  mounted: function () {
+    this.searchMovie('rey-leon')
   },
-  methods () {
-    return{
-        searchMovie(movie) {
-        return window.fetch(`${Vue.config.movies.ENDPONT}${movie}`),
-            .then(response => {
-                return response.json();
-            }).then(json => {
-                this.selectedMovie = json;
-            });
-        }
+  methods: {
+    searchMovie (movie) {
+      return window.fetch(Vue.config.movies.ENDPOINT + movie)
+        .then(response => {
+          return response.json()
+        }).then(json => {
+          this.selectedMovie = json
+        })
     }
-
   }
 }
 </script>

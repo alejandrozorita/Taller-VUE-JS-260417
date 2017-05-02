@@ -1,27 +1,27 @@
-<template lang="htmt">
+<template lang="html">
 <transition appear name="slide-fade">
     <section class="single-movie-wrapper">
         <div class="movie-data">
         </div>
         <footer>
-            <div class="row">
-                <div class="col-sm-offset-3 col-sm-6">
-                    <div class="thumbnail">
-                        <img v-if="selectedMovie.Poster != 'N/A'" class="movie-poster" :src="selectedMovie.Poster" :alt="selectedMovie.Title + 'poster'">
-                        <div class="caption">
-                            <h2>{{ selectedMovie.Title }}</h2>
-                            <p class="plot"> {{ selectedMovie.Plot }}</p>
-                            <p><b>Genero: </b>{{ selectedMovie.Genere }}</p>
-                            <p><b>Year: </b>{{ selectedMovie.Year }}</p>
-                            <p><b>Director: </b>{{ selectedMovie.Director }}</p>
-                            <p><b>Actors: </b>{{ selectedMovie.Actors }}</p>
-                            <p><b>Runtime: </b>{{ selectedMovie.Runtime }}</p>
-                            <p><b>Rating: </b>{{ selectedMovie.Rating }}</p>
-                            <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
-                        </div>
-                    </div>
+          <div class="row">
+            <div class="col-sm-offset-3 col-sm-6">
+              <div class="thumbnail">
+                <img v-if="selectedMovie.Poster != 'N/A'" class="movie-poster" :src="selectedMovie.Poster" :alt="selectedMovie.Title + 'poster'">
+                <div class="caption">
+                    <h2>{{ selectedMovie.Title }}</h2>
+                    <p class="plot"> {{ selectedMovie.Plot }}</p>
+                    <p><b>Genero: </b>{{ selectedMovie.Genere }}</p>
+                    <p><b>Year: </b>{{ selectedMovie.Year }}</p>
+                    <p><b>Director: </b>{{ selectedMovie.Director }}</p>
+                    <p><b>Actors: </b>{{ selectedMovie.Actors }}</p>
+                    <p><b>Runtime: </b>{{ selectedMovie.Runtime }}</p>
+                    <p><b>Rating: </b>{{ selectedMovie.Rating }}</p>
+                    <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
                 </div>
+              </div>
             </div>
+          </div>
         </footer>
     </section>
 </transition>
@@ -31,7 +31,7 @@
   export default {
     name: 'Movie',
     props: {
-      selectMovie: {
+      selectedMovie: {
         type: Object,
         required: true
       }

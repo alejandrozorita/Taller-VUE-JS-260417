@@ -5,10 +5,8 @@ import App from './App'
 
 Vue.config.productionTip = false
 
-
-//Cargamos la configuración de la constante
-Vue.config.movies = procces.env
-
+// Cargamos la configuración de la constante
+Vue.config.movies = process.env
 
 /* eslint-disable no-new */
 new Vue({
